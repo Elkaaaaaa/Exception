@@ -1,28 +1,29 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class prog {
-    public static void main(String[] args) {
-        int[] array1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int[] array2 = {0, 1, 2, 3, 3, 2, 1, 2, 3};
-        System.out.println("Первый массив " + Arrays.toString(array1));
-        System.out.println("Второй массив " + Arrays.toString(array2));
-        System.out.println("Разница двух  массивов " + differenceArray(array1, array2));
+class prog {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            Float.parseFloat(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
-public static ArrayList<Integer> differenceArray(int[] a1, int[] a2) {
-        ArrayList<Integer> result = new ArrayList<>();
-        int min = Math.min(a1.length, a2.length);
-        int max = Math.max(a1.length, a2.length);
-        if (min < 1) {
-            throw new RuntimeException("Один из массивов пуст");
+    public static void main(String[] args) {
+        while (true) {
+            String num = scanner.next();
+            if (isNumeric(num)) {
+                System.out.println(num);
+                break;
+            } else {
+                System.out.println("Это не чсило типа Float");
+            }
         }
-        if (min < max) {
-            throw new RuntimeException("Длинны массивов не равны!");
-        }
-        for (int i = 0; i < min; i++) {
-            result.add(a1[i] - a2[i]);
-        }
-        return result;
     }
 }
