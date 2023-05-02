@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class prog {
+class ex1 {
     static Scanner scanner = new Scanner(System.in);
 
     public static boolean isNumeric(String strNum) {
